@@ -1,0 +1,18 @@
+{
+  "name": "react-native-easy-dark-repo",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": ["packages/*"]
+  },
+  "scripts": {
+    "dev:core": "yarn workspace react-native-easy-dark run dev",
+    "dev:sample": "yarn workspace sample run start",
+    "dev": "concurrently -c blue,red \"yarn run dev:core\" \"yarn run dev:sample\""
+  },
+  "dependencies": {
+    "concurrently": "^7.2.2",
+    "prettier": "^2.7.1",
+    "typescript": "~4.3.5"
+  }
+}
