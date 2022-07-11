@@ -1,7 +1,7 @@
 import * as React from "react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { createStyleSheet, useDynamicDarkModeStyles } from "./darkUtils";
-import { onAppearanceChange } from "./colorSchemeState";
+import { onAppearanceChange, setColorScheme } from "./colorSchemeState";
 import { render } from "@testing-library/react-native";
 import { View } from "react-native";
 
@@ -19,29 +19,18 @@ vi.mock("react-native", () => ({
 }));
 
 describe("createStyleSheet", () => {
-  beforeEach(() => {
-    onAppearanceChange({ colorScheme: "light" });
-  });
-
-  const styles = createStyleSheet({
-    container: {
-      backgroundColor: "#fff",
-      $dark: {
-        backgroundColor: "#000",
-      },
-    },
-  });
+  beforeEach(reset);
 
   it("returns just original style in light mode", () => {
     // light mode, just return main styles
-    expect(styles.container).toEqual([{ backgroundColor: "#fff" }]);
+    expect(styles.container).toEqual([{ backgroundColor: "white" }]);
   });
 
   it("returns original + dark in dark mode", () => {
-    onAppearanceChange({ colorScheme: "dark" });
+    goDark();
     expect(styles.container).toEqual([
-      { backgroundColor: "#fff" },
-      { backgroundColor: "#000" },
+      { backgroundColor: "white" },
+      { backgroundColor: "black" },
     ]);
   });
 });
@@ -54,19 +43,61 @@ describe("useDynamicDarkModeStyles", () => {
 
     // @ts-ignore
     expect(MockView.calls?.at(-1)?.[0].style).toEqual([
-      { backgroundColor: "#fff" },
+      { backgroundColor: "white" },
     ]);
 
     // Switch to dark mode.
     onAppearanceChange({ colorScheme: "dark" });
     // @ts-ignore
     expect(MockView.calls?.at(-1)?.[0].style).toEqual([
-      { backgroundColor: "#fff" },
-      { backgroundColor: "#000" },
+      { backgroundColor: "white" },
+      { backgroundColor: "black" },
     ]);
   });
 });
 
+describe("setColorScheme", () => {
+  beforeEach(reset);
+
+  it("overrides dark system color with light", () => {
+    reset();
+    setColorScheme("dark");
+
+    expect(styles.container).toEqual([
+      { backgroundColor: "white" },
+      { backgroundColor: "black" },
+    ]);
+  });
+
+  it("overrides light system color with dark", () => {
+    goDark();
+    setColorScheme("light");
+
+    expect(styles.container).toEqual([{ backgroundColor: "white" }]);
+  });
+
+  it("doesnt affect system color pref when set to auto", () => {
+    setColorScheme("auto");
+
+    expect(styles.container).toEqual([{ backgroundColor: "white" }]);
+
+    goDark();
+    expect(styles.container).toEqual([
+      { backgroundColor: "white" },
+      { backgroundColor: "black" },
+    ]);
+  });
+});
+
+const reset = () => {
+  setColorScheme("auto");
+  onAppearanceChange({ colorScheme: "light" });
+};
+const goDark = () => {
+  onAppearanceChange({ colorScheme: "dark" });
+};
+
+// For testing hook
 const MyComponent = () => {
   useDynamicDarkModeStyles();
 
@@ -75,9 +106,9 @@ const MyComponent = () => {
 
 const styles = createStyleSheet({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     $dark: {
-      backgroundColor: "#000",
+      backgroundColor: "black",
     },
   },
 });

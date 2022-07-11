@@ -105,3 +105,13 @@ const styles = createStyleSheet({
   }
 });
 ```
+
+### `setColorScheme`
+
+A method to override the system default color scheme. 
+
+```ts
+setColorScheme: (override: "light" | "dark" | "auto") => void;
+```
+
+E.g. call `setColorScheme("dark")` to apply dark-mode styles even if system color scheme preference is "light".
