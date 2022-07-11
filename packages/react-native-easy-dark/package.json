@@ -7,7 +7,7 @@
     "react-native",
     "dark-mode"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -30,7 +30,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepublishOnly": "cp ../../README.md ./README.md && yarn test && yarn build",
+    "prepublishOnly": "cp ../../README.md ./README.md && cp ../../LICENSE ./LICENSE && yarn test && yarn build",
     "preversion": "yarn run test"
   },
   "license": "MIT",
