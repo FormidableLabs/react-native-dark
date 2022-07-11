@@ -1,12 +1,12 @@
 # React Native Easy Dark
 
-`react-native-easy-dark` aims to be a slim, drop-in replacement for React Native's `StyleSheet.create` method that supports dynamic dark-mode styling with little hassle.
+`react-native-dark` aims to be a slim, drop-in replacement for React Native's `StyleSheet.create` method that supports dynamic dark-mode styling with little hassle.
 
 A little, illustrative example:
 
 ```tsx
 import { StyleSheet, Text, View } from "react-native";
-import { createStyleSheet, useDynamicDarkModeStyles } from "react-native-easy-dark";
+import { createStyleSheet, useDynamicDarkModeStyles } from "react-native-dark";
 
 export default function App() {
   // Need this 👇 for dynamic styles
@@ -41,12 +41,12 @@ const styles = createStyleSheet({
 
 ## Setup
 
-From a React Native (or Expo) project, install `react-native-easy-dark` from npm:
+From a React Native (or Expo) project, install `react-native-dark` from npm:
 
 ```shell
-npm install react-native-easy-dark # npm
-yarn add react-native-easy-dark # yarn
-pnpm add react-native-easy-dark # pnpm
+npm install react-native-dark # npm
+yarn add react-native-dark # yarn
+pnpm add react-native-dark # pnpm
 ```
 
 That's it.
@@ -58,7 +58,7 @@ That's it.
 A `StyleSheet.create` replacement where each key's value can also accept a `$dark` field with a set of styles to be applied when in dark mode.
 
 ```ts
-import { createStyleSheet } from "react-native-easy-dark";
+import { createStyleSheet } from "react-native-dark";
 
 const styles = createStyleSheet({
   container: { flex: 1 }, // 👈 can use like normal StyleSheet.create style
@@ -81,7 +81,7 @@ styles.title; // has black color in light mode, and (larger) white color in dark
 An argument-less hook that subscribes to changes to the user's color scheme preference, and triggers a re-render accordingly. This is needed to inform React when the color scheme preference changes, otherwise your UI's display will be "stale" when color scheme preference changes.
 
 ```tsx
-import { createStyleSheet, useDynamicDarkModeStyles } from "react-native-easy-dark";
+import { createStyleSheet, useDynamicDarkModeStyles } from "react-native-dark";
 import { View, Text } from "react-native";
 
 export const MyComponent = () => {

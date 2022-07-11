@@ -1,5 +1,5 @@
 {
-  "name": "react-native-easy-dark-repo",
+  "name": "react-native-dark-repo",
   "license": "MIT",
   "private": true,
   "workspaces": {
@@ -8,16 +8,16 @@
     ]
   },
   "scripts": {
-    "dev:core": "yarn workspace react-native-easy-dark run dev",
+    "dev:core": "yarn workspace react-native-dark run dev",
     "dev:sample": "yarn workspace sample run start",
     "dev": "concurrently -c blue,red \"yarn run dev:core\" \"yarn run dev:sample\"",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "check:ci": "yarn build:core && yarn typecheck && yarn test",
-    "version": "yarn workspace react-native-easy-dark version --new-version $npm_package_version",
-    "publish:core": "yarn workspace react-native-easy-dark publish",
-    "build:core": "yarn workspace react-native-easy-dark run build"
+    "version": "yarn workspace react-native-dark version --new-version $npm_package_version",
+    "publish:core": "yarn workspace react-native-dark publish",
+    "build:core": "yarn workspace react-native-dark run build"
   },
   "dependencies": {
     "concurrently": "^7.2.2",

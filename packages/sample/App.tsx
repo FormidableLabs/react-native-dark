@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import {
   createStyleSheet,
   useDynamicDarkModeStyles,
-} from "react-native-easy-dark";
+} from "../react-native-dark";
 
 export default function App() {
   // Need this 👇 for dynamic styles
