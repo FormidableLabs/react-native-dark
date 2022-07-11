@@ -1,26 +1,20 @@
 # React Native Easy Dark
 
-## WIP
+`react-native-easy-dark` aims to be a slim, drop-in replacement for React Native's `StyleSheet.create` method that supports dynamic dark-mode styling with little hassle.
 
-Working on a super-slim "easy dark mode" library for React Native. Intended to be a drop-in replacement for `StyleSheet.create` with a sprinkle of magic to make dynamic dark-mode support possible.
+A little, illustrative example:
 
 ```tsx
 import { StyleSheet, Text, View } from "react-native";
-import {
-  createStyleSheet,
-  useDynamicDarkModeStyles,
-} from "react-native-easy-dark";
+import { createStyleSheet, useDynamicDarkModeStyles } from "react-native-easy-dark";
 
 export default function App() {
   // Need this 👇 for dynamic styles
-  //  (otherwise React won't re-render when color scheme pref changes)
   useDynamicDarkModeStyles();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        Open up App.tsx to start working on your app!
-      </Text>
+      <Text style={styles.title}>Hello, world!</Text>
     </View>
   );
 }
@@ -28,22 +22,86 @@ export default function App() {
 const styles = createStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "white",
     // 🎉 dark mode 🎉
     $dark: {
-      backgroundColor: "#000",
+      backgroundColor: "black",
     },
   },
 
   title: {
-    fontSize: 18,
-    color: "#000",
-    // 🎉 dark mode 
+    color: "black",
+    // 🎉 dark mode 🎉
     $dark: {
-      color: "#fff",
+      color: "white",
     },
   },
+});
+```
+
+## Setup
+
+From a React Native (or Expo) project, install `react-native-easy-dark` from npm:
+
+```shell
+npm install react-native-easy-dark # npm
+yarn add react-native-easy-dark # yarn
+pnpm add react-native-easy-dark # pnpm
+```
+
+That's it.
+
+## API
+
+### `createStyleSheet`
+
+A `StyleSheet.create` replacement where each key's value can also accept a `$dark` field with a set of styles to be applied when in dark mode.
+
+```ts
+import { createStyleSheet } from "react-native-easy-dark";
+
+const styles = createStyleSheet({
+  container: { flex: 1 }, // 👈 can use like normal StyleSheet.create style
+  
+  // 👇 Or use $dark field to apply styles in dark mode.
+  title: {
+    color: "black",
+    $dark: {
+      color: "white",
+      fontSize: 24
+    }
+  }
+});
+
+styles.title; // has black color in light mode, and (larger) white color in dark mode
+```
+
+### `useDynamicDarkModeStyles`
+
+An argument-less hook that subscribes to changes to the user's color scheme preference, and triggers a re-render accordingly. This is needed to inform React when the color scheme preference changes, otherwise your UI's display will be "stale" when color scheme preference changes.
+
+```tsx
+import { createStyleSheet, useDynamicDarkModeStyles } from "react-native-easy-dark";
+import { View, Text } from "react-native";
+
+export const MyComponent = () => {
+  useDynamicDarkModeStyles(); // 👈 Need this if you want styles to update on color scheme change.
+  
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>HELLO WORLD!</Text>
+    </View>
+  )
+}
+
+const styles = createStyleSheet({
+  container: { flex: 1 },
+  title: {
+    color: "black",
+    $dark: {
+      color: "white",
+      fontSize: 24
+    }
+  }
 });
 ```
