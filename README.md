@@ -1,3 +1,10 @@
+# React Native Easy Dark
+
+## WIP
+
+Working on a super-slim "easy dark mode" library for React Native. Intended to be a drop-in replacement for `StyleSheet.create` with a sprinkle of magic to make dynamic dark-mode support possible.
+
+```tsx
 import { StyleSheet, Text, View } from "react-native";
 import {
   createStyleSheet,
@@ -33,9 +40,10 @@ const styles = createStyleSheet({
   title: {
     fontSize: 18,
     color: "#000",
-
+    // 🎉 dark mode 
     $dark: {
       color: "#fff",
     },
   },
 });
+```

@@ -73,7 +73,7 @@ export const createStyleSheet = <T extends NamedStyles>(styles: T) => {
 /**
  * Hook required to trigger re-render when color scheme preference changes.
  */
-export const useDynamicStyles = () => {
+export const useDynamicDarkModeStyles = () => {
   const [s, setS] = React.useState(() => systemColorScheme);
 
   React.useEffect(() => {
