@@ -10,25 +10,11 @@ import {
 } from "react-native";
 import { SimpleEventEmitter } from "./SimpleEventEmitter";
 import { omit } from "./omit";
+import { colorScheme, colorSchemeEE, isDark } from "./colorSchemeState";
 
 /**
  * State for color scheme preference. Emit when preference changes.
  */
-const colorSchemeEE = new SimpleEventEmitter<ColorSchemeName>();
-let systemColorScheme = Appearance.getColorScheme();
-let colorSchemeOverride: ColorSchemeOverride = "auto";
-const colorScheme = () =>
-  colorSchemeOverride === "auto" ? systemColorScheme : colorSchemeOverride;
-
-const isDark = () => systemColorScheme === "dark";
-Appearance.addChangeListener((r) => {
-  systemColorScheme = r.colorScheme;
-  colorSchemeEE.emit(colorScheme());
-});
-
-export const setColorScheme = (o: ColorSchemeOverride) => {
-  colorSchemeOverride = o;
-};
 
 /**
  * Replacement for StyleSheet.create, with $dark option
@@ -59,7 +45,7 @@ export const createStyleSheet = <T extends NamedStyles>(styles: T) => {
       if (cacheVal) return cacheVal;
 
       const val = [stylesheet[String(p)]].concat(
-        stylesheet[`${String(p)}$dark`] && systemColorScheme === "dark"
+        stylesheet[`${String(p)}$dark`] && isDark()
           ? stylesheet[`${String(p)}$dark`]
           : [],
       );
@@ -74,7 +60,7 @@ export const createStyleSheet = <T extends NamedStyles>(styles: T) => {
  * Hook required to trigger re-render when color scheme preference changes.
  */
 export const useDynamicDarkModeStyles = () => {
-  const [s, setS] = React.useState(() => systemColorScheme);
+  const [s, setS] = React.useState(colorScheme);
 
   React.useEffect(() => {
     return colorSchemeEE.subscribe((v) => {
@@ -86,7 +72,7 @@ export const useDynamicDarkModeStyles = () => {
 /**
  * Util types
  */
-type ColorSchemeOverride = "auto" | "dark" | "light";
+
 // Exclude symbols
 type NonSymbol<T> = Exclude<T, symbol>;
 
