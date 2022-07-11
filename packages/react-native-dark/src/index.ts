@@ -1,1 +1,1 @@
-export { createStyleSheet, useDynamicDarkModeStyles } from "./easyDark";
+export { createStyleSheet, useDynamicDarkModeStyles } from "./darkUtils";

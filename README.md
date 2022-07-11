@@ -1,4 +1,4 @@
-# React Native Easy Dark
+# React Native Dark
 
 `react-native-dark` aims to be a slim, drop-in replacement for React Native's `StyleSheet.create` method that supports dynamic dark-mode styling with little hassle.
 
