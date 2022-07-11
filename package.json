@@ -12,7 +12,12 @@
     "dev:sample": "yarn workspace sample run start",
     "dev": "concurrently -c blue,red \"yarn run dev:core\" \"yarn run dev:sample\"",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "check:ci": "yarn build:core && yarn typecheck && yarn test",
+    "version": "yarn workspace react-native-easy-dark version --new-version $npm_package_version",
+    "publish:core": "yarn workspace react-native-easy-dark publish",
+    "build:core": "yarn workspace react-native-easy-dark run build"
   },
   "dependencies": {
     "concurrently": "^7.2.2",

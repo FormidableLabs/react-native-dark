@@ -1,7 +1,13 @@
 {
   "name": "react-native-easy-dark",
+  "author": "Formidable",
+  "description": "Tiny wrapper around React Native's StyleSheet.create API to easily support dark mode.",
+  "keywords": [
+    "react",
+    "react-native",
+    "dark-mode"
+  ],
   "version": "0.0.1",
-  "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -13,6 +19,11 @@
       "./dist/index.js"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FormidableLabs/react-native-easy-dark/"
+  },
+  "homepage": "https://github.com/FormidableLabs/react-native-easy-dark/",
   "scripts": {
     "build": "rm -rf dist && tsc -p ./tsconfig.build.json",
     "dev": "tsc --watch",
@@ -22,10 +33,12 @@
     "prepublishOnly": "cp ../../README.md ./README.md && cp ../../LICENSE ./LICENSE && yarn test && yarn build",
     "preversion": "yarn run test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "typescript": "~4.3.5"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-native": ">=0.66.4"
   }
 }
