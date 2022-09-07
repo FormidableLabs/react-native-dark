@@ -10,15 +10,10 @@
   "version": "0.0.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": [
-      {
-        "imports": "./dist/index.js",
-        "types": "./dist/index.d.ts"
-      },
-      "./dist/index.js"
-    ]
-  },
+  "files": [
+    "dist/",
+    "babel.js"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/FormidableLabs/react-native-dark/"

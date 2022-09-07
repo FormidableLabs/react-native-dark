@@ -7,11 +7,6 @@ import {
 } from "react-native-dark";
 
 export default function App() {
-  const [x, setX] = React.useState(0);
-  // Need this 👇 for dynamic styles
-  //  (otherwise React won't re-render when color scheme pref changes)
-  // useDynamicDarkModeStyles();
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
