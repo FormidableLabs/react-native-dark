@@ -23,12 +23,12 @@ describe("createStyleSheet", () => {
 
   it("returns just original style in light mode", () => {
     // light mode, just return main styles
-    expect(styles.container).toEqual([{ backgroundColor: "white" }]);
+    expect(styles.title).toEqual([{ backgroundColor: "white" }]);
   });
 
   it("returns original + dark in dark mode", () => {
     goDark();
-    expect(styles.container).toEqual([
+    expect(styles.title).toEqual([
       { backgroundColor: "white" },
       { backgroundColor: "black" },
     ]);
@@ -63,7 +63,7 @@ describe("setColorScheme", () => {
     reset();
     setColorScheme("dark");
 
-    expect(styles.container).toEqual([
+    expect(styles.title).toEqual([
       { backgroundColor: "white" },
       { backgroundColor: "black" },
     ]);
@@ -73,16 +73,16 @@ describe("setColorScheme", () => {
     goDark();
     setColorScheme("light");
 
-    expect(styles.container).toEqual([{ backgroundColor: "white" }]);
+    expect(styles.title).toEqual([{ backgroundColor: "white" }]);
   });
 
   it("doesnt affect system color pref when set to auto", () => {
     setColorScheme("auto");
 
-    expect(styles.container).toEqual([{ backgroundColor: "white" }]);
+    expect(styles.title).toEqual([{ backgroundColor: "white" }]);
 
     goDark();
-    expect(styles.container).toEqual([
+    expect(styles.title).toEqual([
       { backgroundColor: "white" },
       { backgroundColor: "black" },
     ]);
@@ -101,11 +101,11 @@ const goDark = () => {
 const MyComponent = () => {
   useDynamicDarkModeStyles();
 
-  return <View style={styles.container} testID="container" />;
+  return <View style={styles.title} testID="container" />;
 };
 
 const styles = createStyleSheet({
-  container: {
+  title: {
     backgroundColor: "white",
     $dark: {
       backgroundColor: "black",

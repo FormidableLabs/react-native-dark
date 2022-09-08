@@ -12,19 +12,44 @@ export default function App() {
   }, [c]);
 
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => setC((v) => (v === "dark" ? "light" : "dark"))}
-    />
+    <>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => setC((v) => (v === "dark" ? "light" : "dark"))}
+      />
+      <Text style={s.title}>Hey</Text>
+    </>
   );
 }
 
-const styles = createStyleSheet({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
+StyleSheet.foo();
+
+const s = StyleSheet.create({
+  t: {
+    fontWeight: "bold",
+  },
+  title: {
+    color: "red",
     $dark: {
-      backgroundColor: "#000",
+      color: "pink",
+      fontWeight: "bold",
     },
   },
 });
+
+const boo = s.title;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    // $dark: {
+    //   backgroundColor: "#000",
+    // },
+  },
+  title: {
+    fontWeight: "bold",
+  },
+});
+
+const t = styles.title;

@@ -4,14 +4,14 @@ import { Text, View } from "react-native";
 
 export const Card = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.title}>
       <Text>A card!</Text>
     </View>
   );
 };
 
 const styles = createStyleSheet({
-  container: {
+  title: {
     backgroundColor: "red",
     borderRadius: 8,
     padding: 8,
