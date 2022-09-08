@@ -12,4 +12,18 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
     },
   },
+
+  title: {
+    fontSize: 24,
+    $dark: {
+      fontSize: 18,
+    },
+  },
+
+  banner: {
+    padding: 8,
+    $dark: {
+      padding: 12,
+    },
+  },
 });

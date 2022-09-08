@@ -1,12 +1,7 @@
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = App;
-var _slicedToArray2 = _interopRequireDefault(
-  require("@babel/runtime/helpers/slicedToArray")
-);
 var React = _interopRequireWildcard(require("react"));
 var _reactNative = require("react-native");
-var _reactNativeDark = require("react-native-dark");
 var _jsxRuntime = require("react/jsx-runtime");
 function _getRequireWildcardCache(nodeInterop) {
   if (typeof WeakMap !== "function") return null;
@@ -51,41 +46,13 @@ function _interopRequireWildcard(obj, nodeInterop) {
   return newObj;
 }
 function App() {
-  var _React$useState = React.useState("dark"),
-    _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
-    c = _React$useState2[0],
-    setC = _React$useState2[1];
-  React.useEffect(
-    function () {
-      (0, _reactNativeDark.setColorScheme)(c);
-    },
-    [c]
-  );
-  return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-    children: [
-      (0, _jsxRuntime.jsx)(_reactNative.TouchableOpacity, {
-        style: styles.container,
-        onPress: function onPress() {
-          return setC(function (v) {
-            return v === "dark" ? "light" : "dark";
-          });
-        },
-      }),
-      (0, _jsxRuntime.jsx)(_reactNative.Text, {
-        style: s.title,
-        children: "Hey",
-      }),
-    ],
-  });
+  return (0, _jsxRuntime.jsx)(_reactNative.View, { style: styles.container });
 }
-var foo = _reactNative.StyleSheet.create(3);
-var s = _reactNative.StyleSheet.create({
-  t: { fontWeight: "bold" },
-  title: { color: "red", $dark: { color: "pink", fontWeight: "bold" } },
-});
-var boo = s.title;
 var styles = _reactNative.StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff" },
-  title: { fontWeight: "bold" },
+  container: { backgroundColor: "red" },
+  title: { fontSize: 24 },
+  banner: { padding: 8 },
+  __container__$dark: { fontWeight: "bold" },
+  __title__$dark: { fontSize: 18 },
+  __banner__$dark: { padding: 12 },
 });
-var t = styles.title;
