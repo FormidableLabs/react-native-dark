@@ -3,6 +3,22 @@ import type { ConfigAPI, PluginObj } from "@babel/core";
 // @ts-ignore
 import { addNamed } from "@babel/helper-module-imports";
 
+/**
+ * We want to transform:
+ *  const styles = StyleSheet.create({foo: {$dark: {}}})
+ * into
+ *  const styles = StyleSheet.create({ foo: {}, __foo__$dark: {} })
+ * by extracting out the dark styles.
+ *
+ * Then we want to compose base/dark styles by creating a variable like:
+ *  const __styles__foo__$dark = StyleSheet.compose(styles.foo, styles.__foo__$dark);
+ *
+ * Then we want to find functions that reference this styles.foo (etc) property and:
+ *  - inject a const __isDark = useIsDark(); into the top
+ *  - replace styles.foo with (!__isDark ? styles.foo : __styles__foo__$dark)
+ *
+ */
+
 export default function ({ types: t }: typeof babel): PluginObj {
   return {
     visitor: {
