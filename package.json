@@ -35,20 +35,22 @@
     "react-native": ">=0.66.4"
   },
   "dependencies": {
-    "@babel/core": "^7.19.0"
+    "@babel/core": "^7.19.0",
+    "@babel/helper-module-imports": "^7.18.6"
   },
   "devDependencies": {
+    "@babel/types": "^7.19.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/react-native": "^10.1.1",
     "@types/babel__core": "^7.1.19",
     "@types/react": "^18.0.15",
     "@types/react-native": "^0.69.2",
+    "concurrently": "^7.2.2",
+    "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-native": "0.68.2",
     "react-test-renderer": "^18.2.0",
-    "vitest": "^0.18.0",
-    "concurrently": "^7.2.2",
-    "prettier": "^2.7.1",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "vitest": "^0.18.0"
   }
 }

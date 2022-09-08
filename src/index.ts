@@ -1,2 +1,2 @@
 export { createStyleSheet, useDynamicDarkModeStyles } from "./darkUtils";
-export { setColorScheme } from './colorSchemeState'
+export { setColorScheme, colorScheme } from "./colorSchemeState";
