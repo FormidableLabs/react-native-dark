@@ -1,5 +1,5 @@
 import * as babel from "@babel/core";
-import type { ConfigAPI, PluginObj, NodePath } from "@babel/core";
+import type { PluginObj, NodePath } from "@babel/core";
 // @ts-ignore
 import { addNamed } from "@babel/helper-module-imports";
 import {
@@ -23,12 +23,8 @@ import {
  *  const __styles__foo__$dark = StyleSheet.compose(styles.foo, styles.__foo__$dark);
  *
  * Then we want to find functions that reference this styles.foo (etc) property and:
- *  - inject a const __isDark = useIsDark(); into the top
+ *  - inject a const __isDark = useDarkMode(); into the top
  *  - replace styles.foo with (!__isDark ? styles.foo : __styles__foo__$dark)
- *
- * This should translate, roughly, into the following steps:
- * 1. Check if StyleSheet is imported from RN and StyleSheet.create is called with one $dark member.
- * 2.
  */
 
 export default function ({ types: t }: typeof babel): PluginObj {
