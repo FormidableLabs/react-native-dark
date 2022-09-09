@@ -22,7 +22,7 @@ module "react-native" {
       styles: T | DarkStyles<T>,
     ): {
       [Key in keyof T]: T[Key] extends infer Base & { $dark: infer Dark }
-        ? Expand<Omit<Base, keyof Base & "$dark"> & Dark>
+        ? Expand<Omit<Base, keyof Base & "$dark"> & Partial<Dark>>
         : T[Key];
     };
   }
