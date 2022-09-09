@@ -1,29 +1,39 @@
 import * as React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
-  return <View style={styles.container} />;
+  return (
+    <View style={styles.container}>
+      <Header />
+    </View>
+  );
 }
+
+const Header = () => {
+  return (
+    <View>
+      <Text style={styles.title}>Hello world!</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "red",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
     $dark: {
-      fontWeight: "bold",
+      backgroundColor: "black",
     },
   },
 
   title: {
-    fontSize: 24,
+    color: "black",
     $dark: {
-      fontSize: 18,
-    },
-  },
-
-  banner: {
-    padding: 8,
-    $dark: {
-      padding: 12,
+      color: "white",
+      fontWeight: "bold",
+      fontSize: 24,
     },
   },
 });
