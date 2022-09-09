@@ -1,21 +1,15 @@
 import * as React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
-      <Header />
-    </View>
-  );
-}
-
-const Header = () => {
-  return (
-    <View>
       <Text style={styles.title}>Hello world!</Text>
     </View>
   );
 };
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
@@ -23,6 +17,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
+
     $dark: {
       backgroundColor: "black",
     },
@@ -30,10 +25,11 @@ const styles = StyleSheet.create({
 
   title: {
     color: "black",
+    fontSize: 24,
+
     $dark: {
       color: "white",
       fontWeight: "bold",
-      fontSize: 24,
     },
   },
 });

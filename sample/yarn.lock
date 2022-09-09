@@ -8466,6 +8466,13 @@ react-native-dark@./dark.tgz:
     "@babel/core" "^7.19.0"
     "@babel/helper-module-imports" "^7.18.6"
 
+react-native-dark@./rn-dark.tgz:
+  version "0.0.5"
+  resolved "./rn-dark.tgz#130f1f51b5826b7a9143e39bb0022c2e8741c8dd"
+  dependencies:
+    "@babel/core" "^7.19.0"
+    "@babel/helper-module-imports" "^7.18.6"
+
 react-native-gradle-plugin@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.7.tgz#96602f909745239deab7b589443f14fce5da2056"

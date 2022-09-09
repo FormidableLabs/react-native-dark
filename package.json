@@ -8,12 +8,12 @@
     "react-native",
     "dark-mode"
   ],
-  "version": "0.0.5",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/",
-    "babel.js",
+    "plugin.js",
     "shim.d.ts"
   ],
   "repository": {
