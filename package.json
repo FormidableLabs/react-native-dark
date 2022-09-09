@@ -1,37 +1,62 @@
 {
-  "name": "react-native-dark-repo",
-  "license": "MIT",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
+  "name": "react-native-dark",
+  "author": "Formidable",
+  "private": false,
+  "description": "Tiny wrapper around React Native's StyleSheet.create API to easily support dark mode.",
+  "keywords": [
+    "react",
+    "react-native",
+    "dark-mode"
+  ],
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "plugin.js",
+    "shim.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FormidableLabs/react-native-dark/"
   },
+  "homepage": "https://github.com/FormidableLabs/react-native-dark/",
   "scripts": {
-    "dev:core": "yarn workspace react-native-dark run dev",
-    "dev:sample": "yarn workspace sample run start",
-    "dev": "concurrently -c blue,red \"yarn run dev:core\" \"yarn run dev:sample\"",
+    "build": "rm -rf dist && tsc -p ./tsconfig.build.json",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit",
-    "check:ci": "yarn build:core && yarn typecheck && yarn test",
-    "version": "yarn workspace react-native-dark version --new-version $npm_package_version",
-    "publish:core": "yarn workspace react-native-dark publish",
-    "build:core": "yarn workspace react-native-dark run build"
+    "prepublishOnly": "yarn test && yarn build",
+    "prepack": "yarn build",
+    "preversion": "yarn test"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-native": ">=0.66.4"
   },
   "dependencies": {
-    "concurrently": "^7.2.2",
-    "prettier": "^2.7.1",
-    "typescript": "~4.3.5"
+    "@babel/core": "^7.19.0",
+    "@babel/helper-module-imports": "^7.18.6"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.19.0",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/types": "^7.19.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/react-native": "^10.1.1",
+    "@types/babel__core": "^7.1.19",
     "@types/react": "^18.0.15",
     "@types/react-native": "^0.69.2",
+    "babel-preset-expo": "^9.2.0",
+    "concurrently": "^7.2.2",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-native": "0.68.2",
     "react-test-renderer": "^18.2.0",
+    "typescript": "~4.3.5",
     "vitest": "^0.18.0"
   }
 }

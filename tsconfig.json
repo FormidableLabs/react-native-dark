@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "jsx": "react",
+    "target": "es2019",
     "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "jsx": "react-native",
+    "outDir": "./dist",
     "strict": true,
-    "skipLibCheck": true
-  }
+    "baseUrl": "./src",
+    "rootDirs": ["./src"],
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
