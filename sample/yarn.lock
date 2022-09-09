@@ -8459,16 +8459,9 @@ react-native-codegen@^0.69.2:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
-react-native-dark@./dark.tgz:
-  version "0.0.5"
-  resolved "./dark.tgz#0636a006969be3a11e744fd7f0c8b02acf0940bd"
-  dependencies:
-    "@babel/core" "^7.19.0"
-    "@babel/helper-module-imports" "^7.18.6"
-
 react-native-dark@./rn-dark.tgz:
-  version "0.0.5"
-  resolved "./rn-dark.tgz#130f1f51b5826b7a9143e39bb0022c2e8741c8dd"
+  version "0.1.0"
+  resolved "./rn-dark.tgz#f346f01735e2bfd84141a0e83ca69e8c229fd85e"
   dependencies:
     "@babel/core" "^7.19.0"
     "@babel/helper-module-imports" "^7.18.6"

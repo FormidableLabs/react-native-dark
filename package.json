@@ -28,6 +28,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "yarn test && yarn build",
+    "prepack": "yarn build",
     "preversion": "yarn test"
   },
   "license": "MIT",

@@ -204,9 +204,6 @@ export default function ({ types: t }: typeof babel): PluginObj {
                       memPath.node.property.name,
                     )
                   ) {
-                    console.log(
-                      `${memPath.node.object.name}.${memPath.node.property.name} was accessed`,
-                    );
                     styleCallToMod.push({
                       memPath,
                       darkStyleVarName: `__${memPath.node.object.name}__${memPath.node.property.name}__$dark`,

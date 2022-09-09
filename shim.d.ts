@@ -15,6 +15,9 @@ module "react-native" {
         | AddDark<ImageStyle>;
     };
 
+    /**
+     * Create a stylesheet with dark-mode support via $dark property on style objects.
+     */
     export function create<T extends DarkStyles<T> | DarkStyles<any>>(
       styles: T | DarkStyles<T>,
     ): {
