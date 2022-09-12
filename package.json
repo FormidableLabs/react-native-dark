@@ -41,12 +41,14 @@
     "@babel/helper-module-imports": "^7.18.6"
   },
   "devDependencies": {
+    "@babel/code-frame": "^7.18.6",
     "@babel/preset-env": "^7.19.0",
     "@babel/preset-react": "^7.18.6",
     "@babel/types": "^7.19.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/react-native": "^10.1.1",
     "@types/babel__core": "^7.1.19",
+    "@types/prettier": "^2.7.0",
     "@types/react": "^18.0.15",
     "@types/react-native": "^0.69.2",
     "babel-preset-expo": "^9.2.0",

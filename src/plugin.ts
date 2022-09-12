@@ -163,7 +163,8 @@ export default function ({ types: t }: typeof babel): PluginObj {
           });
 
           // Short-circuit if no dynamic styles are found
-          if (Object.keys(dynamicStyleMap).length === 0) return;
+          if (Object.values(dynamicStyleMap).every((arr) => arr.length === 0))
+            return;
 
           /**
            * Step 3: Import useDarkMode(name?) from react-native-dark.
