@@ -1,4 +1,4 @@
-# React Native Dark
+[![React Native Dark — Formidable, We build the modern web](./react-native-dark-Hero.png)](https://formidable.com/open-source/)
 
 `react-native-dark` is a minor augmentation of `StyleSheet.create` to support dynamic dark-mode styling with little hassle, made possible by babel.
 
