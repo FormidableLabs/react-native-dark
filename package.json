@@ -17,7 +17,6 @@
     "shim.d.ts"
   ],
   "repository": {
-    "type": "git",
     "url": "https://github.com/FormidableLabs/react-native-dark/"
   },
   "homepage": "https://github.com/FormidableLabs/react-native-dark/",
@@ -30,6 +29,9 @@
     "prepublishOnly": "yarn test && yarn build",
     "prepack": "yarn build",
     "preversion": "yarn test"
+  },
+  "publishConfig": {
+    "provenance": true
   },
   "license": "MIT",
   "peerDependencies": {
@@ -45,6 +47,8 @@
     "@babel/preset-env": "^7.19.0",
     "@babel/preset-react": "^7.18.6",
     "@babel/types": "^7.19.0",
+    "@changesets/cli": "^2.26.1",
+    "@svitejs/changesets-changelog-github-compact": "^0.1.1",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/react-native": "^10.1.1",
     "@types/babel__core": "^7.1.19",
