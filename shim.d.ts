@@ -1,4 +1,5 @@
 import "react-native";
+import { type ImageStyle, type TextStyle, type ViewStyle } from "react-native";
 
 module "react-native" {
   export * from "react-native";
@@ -11,13 +12,12 @@ module "react-native" {
         | AddDark<TextStyle>
         | AddDark<ImageStyle>;
     };
-    
 
     /**
      * Create a stylesheet with dark-mode support via $dark property on style objects.
      */
-    export function create<T extends NamedStylesWithDark<T> | NamedStylesWithDark<any>>(
-      styles: T & NamedStylesWithDark<any>,
-    ): T;
+    export function create<
+      T extends NamedStylesWithDark<T> | NamedStylesWithDark<any>,
+    >(styles: T & NamedStylesWithDark<any>): T;
   }
 }
